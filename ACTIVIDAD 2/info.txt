@@ -1,0 +1,8 @@
+tabla con id diccionario
+
+tengo como cabeceras Maya y Español
+
+<tr>  
+    <td>a</td>  
+    <td>tu (posesivo) </td>                           
+</tr> 
