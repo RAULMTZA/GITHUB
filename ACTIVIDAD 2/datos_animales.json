@@ -1,0 +1,38 @@
+[
+    {
+    "ES": "Anfibios",
+    "EN": "Amphibians"
+  },
+  {
+    "ES":"Animales domésticos",
+    "EN":"Domestic animals"
+  },
+  {
+    "ES":"Animales salvajes",
+    "EN":"Wild animals"
+  },
+  {
+    "ES":"Aves",
+    "EN":"Birds"
+  },
+  {
+    "ES":"Invertebrados",
+    "EN":"Invertebrates"
+  },
+  {
+    "ES":"Mamíferos",
+    "EN":"Mammals"
+  },
+  {
+    "ES":"Peces",
+    "EN":"Fish"
+  },
+  {
+    "ES":"Reptiles",
+    "EN":"Reptiles"
+  },
+  {
+    "ES":"Vertebrados",
+    "EN":"Vertebrates"
+  }
+]
