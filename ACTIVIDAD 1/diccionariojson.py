@@ -34,3 +34,61 @@ if response.status_code == 200:
 else:
 
   print("error al conectarse a la web")
+
+#CLASE DEL DIA 27 ENERO
+
+  import pandas as pd
+
+# Cargar los datos desde archivo json
+with open('diccionario_maya.json','r', encoding='utf-8') as file:
+  diccionario_data = json.load(file)
+
+# Crear un dataframe
+df = pd.DataFrame(diccionario_data)
+
+# Crear el excel a partir del DataFrame
+df.to_excel('diccionario_maya.xlsx', index=False)
+
+print("Datos guardados en el diccionario_maya.xlsx")
+
+import pandas as pd
+import json
+
+# Cargar los datos desde archivo json
+with open('diccionario_maya.json','r', encoding='utf-8') as file:
+  diccionario_data = json.load(file)
+
+# Crear un dataframe
+df = pd.DataFrame(diccionario_data)
+
+# 1. Estadisticas descriptiva
+
+descripcion_maya = df['Maya'].describe()
+descripcion_espanol = df['Español'].describe()
+
+print("Estadistica descriptiva de las palabras Maya")
+print(descripcion_maya)
+
+print("Estadistica descriptiva de las palabras Español")
+print(descripcion_espanol)
+
+#2. filtrar datos
+
+palabras_con_a = df[df['Maya'].str.startswith('a',na=False)]
+
+print("Palabras que comienzan con 'a' : ")
+print(palabras_con_a)
+
+#3. ordenar datos
+
+df_ordenado = df.sort_values(by='Maya', key=lambda x: x.str.len(),ascending=True)
+
+print("Palabras Ordenadas :")
+print(df_ordenado)
+
+#4. Contar duplicados
+
+duplicados_maya = df[df.duplicated(subset='Maya', keep=False)]
+
+print("Palabras Duplicadas en Maya")
+print(duplicados_maya)
