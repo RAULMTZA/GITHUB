@@ -92,3 +92,37 @@ duplicados_maya = df[df.duplicated(subset='Maya', keep=False)]
 
 print("Palabras Duplicadas en Maya")
 print(duplicados_maya)
+
+import mysql.connector
+import json
+
+#CONECTAR A LA BDATOS
+conn = mysql.connector.connect(
+    host="mysql-raulmtz.alwaysdata.net",
+    user="raulmtz_us",
+    password="Vingcard15",
+    database="raulmtz_bd"
+)
+
+#VARIABLE DE CONSULTA A LA BASE DEDATOS
+cursor = conn.cursor()
+
+#CARGAR EL ARCHIVO JSON
+with open ('diccionario_maya.json', 'r', encoding = 'utf-8') as file:
+  diccionario_data = json.load(file)
+
+  for palabra in diccionario_data:
+    maya = palabra['Maya']
+    espanol = palabra['Español']
+    insert_query = "INSERT INTO diccionario_json (maya,espanol)VALUES(%s,%s)"
+    cursor.execute(insert_query,maya,espanol)
+
+    conn.commit()
+    cursor.close()
+    conn.close()
+
+#CARGAR EL ARCHIVO EN PANDAS
+
+    import pandas as pd
+
+    df_excel = pd.read_excel('diccionario_maya.xlsx')
